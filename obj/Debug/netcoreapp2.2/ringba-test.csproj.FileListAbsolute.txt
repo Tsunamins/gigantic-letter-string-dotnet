@@ -1,0 +1,11 @@
+C:\Users\reill\Development\code\dotnet\ringba-test\bin\Debug\netcoreapp2.2\ringba-test.deps.json
+C:\Users\reill\Development\code\dotnet\ringba-test\bin\Debug\netcoreapp2.2\ringba-test.runtimeconfig.json
+C:\Users\reill\Development\code\dotnet\ringba-test\bin\Debug\netcoreapp2.2\ringba-test.runtimeconfig.dev.json
+C:\Users\reill\Development\code\dotnet\ringba-test\bin\Debug\netcoreapp2.2\ringba-test.dll
+C:\Users\reill\Development\code\dotnet\ringba-test\bin\Debug\netcoreapp2.2\ringba-test.pdb
+C:\Users\reill\Development\code\dotnet\ringba-test\obj\Debug\netcoreapp2.2\ringba-test.csprojAssemblyReference.cache
+C:\Users\reill\Development\code\dotnet\ringba-test\obj\Debug\netcoreapp2.2\ringba-test.csproj.CoreCompileInputs.cache
+C:\Users\reill\Development\code\dotnet\ringba-test\obj\Debug\netcoreapp2.2\ringba-test.AssemblyInfoInputs.cache
+C:\Users\reill\Development\code\dotnet\ringba-test\obj\Debug\netcoreapp2.2\ringba-test.AssemblyInfo.cs
+C:\Users\reill\Development\code\dotnet\ringba-test\obj\Debug\netcoreapp2.2\ringba-test.dll
+C:\Users\reill\Development\code\dotnet\ringba-test\obj\Debug\netcoreapp2.2\ringba-test.pdb
