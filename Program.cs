@@ -48,6 +48,25 @@ namespace ringba_test
             return text;
             }
         }
+
+        static void countAlphaChars(string text){
+            
+            char[] alphaUpper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".ToCharArray();
+		    char[] alphaLower = "abcdefghijklmnopqrstuvwxyz".ToCharArray();
+
+            for (int i = 0; i < alphaUpper.Length; i++) 
+		    {
+		  	    char uc = alphaUpper[i];
+			    char lc = alphaLower[i];
+			    string regMatch = lc + "|" + uc;
+			    Regex letterCount = new Regex(@regMatch,
+                    RegexOptions.Compiled | RegexOptions.IgnoreCase);
+			    MatchCollection letterMatches = letterCount.Matches(text);
+			    Console.Write(" Total {1}|{2}: {0} ",
+                          letterMatches.Count,
+                          lc, uc);
+            }
+        }
         static void Main(string[] args)
         {
             //download file:
@@ -55,6 +74,9 @@ namespace ringba_test
 
             //read file:
             string text = getText();
+
+            //count e alpha character:
+            countAlphaChars(text);
 
 
 
