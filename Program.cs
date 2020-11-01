@@ -143,6 +143,13 @@ namespace ringba_test
             findWordsContaining(textArray, mostFrequent.Key); 
         }
 
+        static void mostCommonComplex(string[] textArray){
+            Console.WriteLine("Most common of prefixes, greater than 1: ");
+            for(int i = 2; i < 8; i++){
+                checkPrefix(textArray, i);
+            }
+        }
+
         
 
 
@@ -171,6 +178,11 @@ namespace ringba_test
 
             //most common 2 letter prefix on common function:
             checkPrefix(textArray, 2);
+
+            //the bonus:
+            //check for prefixes greater than 1: 
+            mostCommonComplex(textArray);
+            
 
         }
     }
