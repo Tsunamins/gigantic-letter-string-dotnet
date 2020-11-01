@@ -21,8 +21,6 @@ namespace ringba_test
             Console.WriteLine("Downloading File \"{0}\" from \"{1}\" .......\n\n", fileName, myStringWebResource);
             wc.DownloadFile(myStringWebResource,fileName);		
             Console.WriteLine("Successfully Downloaded File \"{0}\" from \"{1}\"", fileName, myStringWebResource);
-            Console.WriteLine("\nDownloaded file saved in the following file system folder:\n\t" + "Application.StartupPath");
-
         }
 
         static string getText()
@@ -145,7 +143,7 @@ namespace ringba_test
 
         static void mostCommonComplex(string[] textArray){
             Console.WriteLine("\nMost common of prefixes, greater than 1: ");
-            for(int i = 2; i < 3; i++){
+            for(int i = 2; i < 8; i++){
                 checkPrefix(textArray, i);
             }
         }
