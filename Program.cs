@@ -67,6 +67,16 @@ namespace ringba_test
                           lc, uc);
             }
         }
+
+        static void countCapitals(string text){
+            Regex capitals = new Regex(@"(?-i)[A-Z]",
+            RegexOptions.Compiled | RegexOptions.IgnoreCase);
+			MatchCollection capitalMatches = capitals.Matches(text);
+			Console.WriteLine("\nTotal Capital Letters: {0}",
+                          capitalMatches.Count);
+        }
+
+
         static void Main(string[] args)
         {
             //download file:
@@ -77,6 +87,9 @@ namespace ringba_test
 
             //count e alpha character:
             countAlphaChars(text);
+
+            //count all Capitals:
+            countCapitals(text);
 
 
 
