@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -104,19 +105,19 @@ namespace ringba_test
            
             var sortedDict = from entry in countWords orderby entry.Value descending select entry;
             var mostFrequent = sortedDict.First();
-            string displayResult = "\nMost Common word is: " + mostFrequent.Key + " found: " + mostFrequent.Value +  " times.";
+            string displayResult = "Most Common word is: " + mostFrequent.Key + " found: " + mostFrequent.Value +  " times.";
             Console.WriteLine(displayResult);
         }
 
         static void findWordsContaining(string[] textArray, string prefix){
-            string[] findWords = Array.FindAll(textArray,  
-               element => element.StartsWith(prefix,
-               StringComparison.Ordinal));
-               Console.WriteLine(findWords.Length);
-
-               string foundWords = string.Join(",", findWords);
-               //uncomment later
-               //Console.WriteLine(foundWords); 
+            List<string> wordList = new List<string>();
+             for(int i = 0; i<textArray.Length; i++){
+                if(textArray[i].Contains(prefix) && textArray[i].Length > prefix.Length){
+                    wordList.Add(textArray[i]);
+                }
+             }
+            string wordsContaining = string.Join( ",", wordList);
+            Console.WriteLine(wordsContaining);
         }
 
         static void checkPrefix(string[] textArray, int prefixSize){
@@ -137,21 +138,18 @@ namespace ringba_test
 
             var sortedDict = from entry in prefixDictionary orderby entry.Value descending select entry;
             var mostFrequent = sortedDict.First();
-            string displayResult = "Most Common " + prefixSize + " letter prefix is: " + mostFrequent.Key + " found: " + mostFrequent.Value +  " times.";
+            string displayResult = "\nMost Common " + prefixSize + " letter prefix is: " + mostFrequent.Key + " found: " + mostFrequent.Value +  " times.";
             Console.WriteLine(displayResult);
             Console.WriteLine("In the following words: ");
             findWordsContaining(textArray, mostFrequent.Key); 
         }
 
         static void mostCommonComplex(string[] textArray){
-            Console.WriteLine("Most common of prefixes, greater than 1: ");
-            for(int i = 2; i < 8; i++){
+            Console.WriteLine("\nMost common of prefixes, greater than 1: ");
+            for(int i = 7; i < 8; i++){
                 checkPrefix(textArray, i);
             }
         }
-
-        
-
 
         static void Main(string[] args)
         {
@@ -177,12 +175,11 @@ namespace ringba_test
             mostCommonWord(textArray);
 
             //most common 2 letter prefix on common function:
-            checkPrefix(textArray, 2);
+            //checkPrefix(textArray, 2);
 
             //the bonus:
             //check for prefixes greater than 1: 
             mostCommonComplex(textArray);
-            
 
         }
     }
