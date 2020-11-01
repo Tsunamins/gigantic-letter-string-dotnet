@@ -24,11 +24,37 @@ namespace ringba_test
             Console.WriteLine("\nDownloaded file saved in the following file system folder:\n\t" + "Application.StartupPath");
 
         }
-        
+
+        static string getText()
+        {
+            string text = "";
+            string pathSource = @"output.txt"; 
+            using (FileStream fsSource = new FileStream(pathSource,
+            FileMode.Open, FileAccess.Read))
+            { 
+                byte[] bytes = new byte[fsSource.Length];
+                int numBytesToRead = (int)fsSource.Length;
+                int numBytesRead = 0;
+                UTF8Encoding temp = new UTF8Encoding(true);
+                while (numBytesToRead > 0)
+                {
+                    int n = fsSource.Read(bytes, numBytesRead, numBytesToRead); 
+                    if (n == 0)
+                    break;
+                    text = temp.GetString(bytes);
+                    numBytesRead += n;
+                    numBytesToRead -= n;
+                } 
+            return text;
+            }
+        }
         static void Main(string[] args)
         {
             //download file:
             downloadFile();
+
+            //read file:
+            string text = getText();
 
 
 
