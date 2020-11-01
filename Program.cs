@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -146,7 +145,7 @@ namespace ringba_test
 
         static void mostCommonComplex(string[] textArray){
             Console.WriteLine("\nMost common of prefixes, greater than 1: ");
-            for(int i = 7; i < 8; i++){
+            for(int i = 2; i < 3; i++){
                 checkPrefix(textArray, i);
             }
         }
@@ -174,11 +173,11 @@ namespace ringba_test
              //find most common word:
             mostCommonWord(textArray);
 
-            //most common 2 letter prefix on common function:
-            //checkPrefix(textArray, 2);
+            //most common 2 letter prefix only:
+            checkPrefix(textArray, 2);
 
             //the bonus:
-            //check for prefixes greater than 1: 
+            //prefixes greater than 1: 
             mostCommonComplex(textArray);
 
         }
