@@ -48,7 +48,7 @@ namespace ringba_test
         }
 
         static void countAlphaChars(string text){
-            
+            Console.WriteLine("\nCount of each letter: ");
             char[] alphaUpper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".ToCharArray();
 		    char[] alphaLower = "abcdefghijklmnopqrstuvwxyz".ToCharArray();
 
@@ -60,10 +60,11 @@ namespace ringba_test
 			    Regex letterCount = new Regex(@regMatch,
                     RegexOptions.Compiled | RegexOptions.IgnoreCase);
 			    MatchCollection letterMatches = letterCount.Matches(text);
-			    Console.Write(" Total {1}|{2}: {0} ",
+			    Console.Write("[Total {1}|{2}: {0}] ",
                           letterMatches.Count,
                           lc, uc);
             }
+            Console.WriteLine("");
         }
 
         static void countCapitals(string text){
@@ -102,8 +103,9 @@ namespace ringba_test
            
             var sortedDict = from entry in countWords orderby entry.Value descending select entry;
             var mostFrequent = sortedDict.First();
-            string displayResult = "Most Common word is: " + mostFrequent.Key + " found: " + mostFrequent.Value +  " times.";
+            string displayResult = "\nMost Common word is: " + mostFrequent.Key + " found: " + mostFrequent.Value +  " times.";
             Console.WriteLine(displayResult);
+            Console.WriteLine("");
         }
 
         static void findWordsContaining(string[] textArray, string prefix){
@@ -172,6 +174,7 @@ namespace ringba_test
             mostCommonWord(textArray);
 
             //most common 2 letter prefix only:
+            Console.WriteLine("Most Common 2-Letter Prefix only: ");
             checkPrefix(textArray, 2);
 
             //the bonus:
