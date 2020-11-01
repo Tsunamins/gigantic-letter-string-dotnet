@@ -90,6 +90,35 @@ namespace ringba_test
             return textArray;
         }
 
+        static void mostCommonWord(string[] textArray){
+            Dictionary<string, int> countWords = new Dictionary<string, int>();
+            for(int i = 0; i<textArray.Length; i++){
+			    string word = textArray[i];
+			    
+			    if(countWords.ContainsKey(word)){
+					countWords[word] = (int)countWords[word] + 1;
+			    } else {
+				    countWords[word] = 1;
+			    }
+            }
+           
+            var sortedDict = from entry in countWords orderby entry.Value descending select entry;
+            var mostFrequent = sortedDict.First();
+            string displayResult = "\nMost Common word is: " + mostFrequent.Key + " found: " + mostFrequent.Value +  " times.";
+            Console.WriteLine(displayResult);
+        }
+
+        static void findWordsContaining(string[] textArray, string prefix){
+            string[] findWords = Array.FindAll(textArray,  
+               element => element.StartsWith(prefix,
+               StringComparison.Ordinal));
+               Console.WriteLine(findWords.Length);
+
+               string foundWords = string.Join(",", findWords);
+               //uncomment later
+               //Console.WriteLine(foundWords); 
+        }
+
 
         static void Main(string[] args)
         {
@@ -111,7 +140,8 @@ namespace ringba_test
             //change to Array:
             string[] textArray = changeToArray(textWithSpaces);
 
-
+             //find most common word:
+            mostCommonWord(textArray);
 
         }
     }
