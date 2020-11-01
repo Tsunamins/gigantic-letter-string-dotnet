@@ -119,6 +119,32 @@ namespace ringba_test
                //Console.WriteLine(foundWords); 
         }
 
+        static void checkPrefix(string[] textArray, int prefixSize){
+           Dictionary<string, int> prefixDictionary = new Dictionary<string, int>(); 
+		    for(int i = 0; i<textArray.Length; i++){
+                string word = textArray[i];
+
+                if(word.Length > prefixSize){             
+			        string prefixLetters = textArray[i].Substring(0,prefixSize);
+			
+                    if(prefixDictionary.ContainsKey(prefixLetters)){
+                        prefixDictionary[prefixLetters] = (int)prefixDictionary[prefixLetters] + 1;
+                    } else {
+                        prefixDictionary[prefixLetters] = 1;
+                    }
+                } 
+            }
+
+            var sortedDict = from entry in prefixDictionary orderby entry.Value descending select entry;
+            var mostFrequent = sortedDict.First();
+            string displayResult = "Most Common " + prefixSize + " letter prefix is: " + mostFrequent.Key + " found: " + mostFrequent.Value +  " times.";
+            Console.WriteLine(displayResult);
+            Console.WriteLine("In the following words: ");
+            findWordsContaining(textArray, mostFrequent.Key); 
+        }
+
+        
+
 
         static void Main(string[] args)
         {
@@ -142,6 +168,9 @@ namespace ringba_test
 
              //find most common word:
             mostCommonWord(textArray);
+
+            //most common 2 letter prefix on common function:
+            checkPrefix(textArray, 2);
 
         }
     }
