@@ -76,6 +76,20 @@ namespace ringba_test
                           capitalMatches.Count);
         }
 
+        static string addSpaces(string text){
+            var findCapitals = 
+    		Regex.Matches(text, @"([A-Z][a-z]+)")
+			.Cast<Match>()
+    		.Select(m => m.Value);
+		    var textWithSpaces = string.Join(" ", findCapitals);
+            return textWithSpaces;
+        }
+
+        static string[] changeToArray(string text){
+		    string[] textArray = text.Split(' ');
+            return textArray;
+        }
+
 
         static void Main(string[] args)
         {
@@ -91,7 +105,11 @@ namespace ringba_test
             //count all Capitals:
             countCapitals(text);
 
+            //add spaces to text:
+            string textWithSpaces = addSpaces(text);
 
+            //change to Array:
+            string[] textArray = changeToArray(textWithSpaces);
 
 
 
